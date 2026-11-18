@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#0b1a33" />
+    <!-- Indic fonts so Hindi/Telugu replies render even on devices/CI browsers without system Indic fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Telugu:wght@400;600;700&display=swap" />
+    <script>
+      // set the theme before first paint (no flash); same key as ThemeToggle
+      try { var t = localStorage.getItem('frontdesk.theme'); if (t !== 'dark' && t !== 'light') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'; document.documentElement.dataset.theme = t; } catch (e) {}
+    </script>
+    <title>FrontDesk AI · Bright Roots Dental</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><circle cx='32' cy='32' r='30' fill='%230f766e'/><path d='M20 18c-6 0-9 6-7 14 2 7 4 16 8 16 3 0 3-9 6-9h10c3 0 3 9 6 9 4 0 6-9 8-16 2-8-1-14-7-14-4 0-6 2-10 2s-7-2-14-2z' fill='white'/></svg>" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

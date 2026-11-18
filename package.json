@@ -1,0 +1,45 @@
+{
+  "name": "frontdesk-ai",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "npm run test:engine && npm run test:tickets && npm run test:booking && npm run test:clinic && npm run test:i18n && npm run test:ai && npm run test:ui && npm run test:api && npm run test:e2e && node scripts/stage4-check.ts && node scripts/stage5-check.ts && node scripts/stage6-check.ts && node scripts/stage7-audit.ts",
+    "test:engine": "node --test tests/engine.test.ts",
+    "test:ui": "vitest run",
+    "test:tickets": "node --test tests/tickets.test.ts",
+    "test:api": "node --test tests/api.test.ts",
+    "test:e2e": "npm run build && node --test --test-concurrency=1 tests/e2e.browser.test.ts",
+    "serve:local": "npm run build && node scripts/local-server.ts 8888",
+    "test:booking": "node --test tests/booking.test.ts",
+    "test:clinic": "node --test tests/clinic.test.ts",
+    "test:check": "npm run build && node scripts/stage4-check.ts",
+    "test:i18n": "node --test tests/i18n.test.ts",
+    "test:check5": "npm run build && node scripts/stage5-check.ts",
+    "test:ai": "node --test tests/ai.test.ts",
+    "test:check6": "npm run build && node scripts/stage6-check.ts",
+    "audit": "npm run build && node scripts/stage7-audit.ts"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.1.9",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/react": "^16.0.1",
+    "@types/node": "^22.7.0",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.2",
+    "jsdom": "^25.0.1",
+    "playwright-core": "^1.65.1",
+    "typescript": "^5.6.3",
+    "vite": "^5.4.10",
+    "vitest": "^2.1.4"
+  }
+}
